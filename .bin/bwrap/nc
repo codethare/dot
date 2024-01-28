@@ -29,11 +29,10 @@ set -euo pipefail
   --ro-bind "$HOME/.bwrap/.codeBox/etc/environment" "/etc/environment" \
   --ro-bind "$HOME/.bwrap/.codeBox/machine-id" "/etc/machine-id" \
   --ro-bind "$HOME/.bwrap/.codeBox/machine-id" "/var/lib/dbus/machine-id" \
-  --ro-bind "$HOME/.bwrap/.codeBox/.config/proxychains/proxychains.conf" "/etc/proxychains.conf" \
   --proc "/proc" \
   --dev "/dev" \
   --tmpfs "/tmp" \
-  --bind-try "$HOME/check/gt" "/home/cod1ng/build/gt" \
+  --bind-try "$HOME/github" "/home/cod1ng/build/github" \
   --bind-try "$HOME/.bwrap/.codeBox/.tircx" "/home/cod1ng/.tircx" \
   --bind-try "$HOME/.bwrap/.codeBox/.deno" "/home/cod1ng/.deno" \
   --bind-try "$HOME/.bwrap/.codeBox/.gitconfig" "/home/cod1ng/.gitconfig" \
@@ -51,8 +50,6 @@ set -euo pipefail
   --bind-try "$HOME/.bwrap/.codeBox/.config/yarn/bin" "/home/cod1ng/.config/yarn/bin" \
   --bind-try "$HOME/.bwrap/.codeBox/.config/nushell" "/home/cod1ng/.config/nushell" \
   --bind-try "$HOME/.bwrap/.codeBox/.config/fish" "/home/cod1ng/.config/fish" \
-  --bind-try "$HOME/.bwrap/.codeBox/.config/go" "/home/cod1ng/.config/go" \
-  --bind-try "$HOME/.bwrap/.codeBox/.config/containers/" "/home/cod1ng/.config/containers" \
   --bind-try "$HOME/.bwrap/.codeBox/.local" "/home/cod1ng/.local" \
   --bind-try "$HOME/.bwrap/.codeBox/.cache" "/home/cod1ng/.cache" \
   --bind-try "$HOME/.bwrap/.codeBox/usr/local" "/usr/local" \
