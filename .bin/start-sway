@@ -1,0 +1,12 @@
+#!/bin/sh -x
+
+fcitx5 -d --replace & 
+
+swaymsg -- exec mako &
+
+swaymsg workspace 5
+swaymsg exec "$term -e $HOME/bin/v2"
+swaymsg workspace 1
+swaymsg exec "$term -e $HOME/bin/sway-debug"
+
+
