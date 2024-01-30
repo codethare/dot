@@ -1,0 +1,18 @@
+abi <abi/3.0>,
+include <tunables/global>
+
+profile xclip /usr/bin/xclip {
+  include <abstractions/base>
+  network unix stream,
+
+  /usr/bin/xclip r,
+
+  # Mutt
+  owner /tmp/mutt-* rw,
+
+  owner @{HOME}/.Xauthority r,
+
+  deny /dev/tty rw,
+}
+
+
