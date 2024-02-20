@@ -6,11 +6,11 @@ set -euo pipefail
   --share-net \
   --clearenv \
   --setenv "PATH" "/usr/bin" \
-  --setenv "HOME" "/home/cod1ng" \
-  --setenv "USER" "/home/cod1ng" \
-  --setenv "LOGNAME" "/home/cod1ng" \
+  --setenv "HOME" "/home/cb" \
+  --setenv "USER" "/home/cb" \
+  --setenv "LOGNAME" "/home/cb" \
   --setenv "TERM" "$TERM" \
-  --hostname "nsiu123" \
+  --hostname "nat" \
   --symlink "/usr/bin" "/bin" \
   --symlink "/usr/bin" "/sbin" \
   --symlink "/usr/lib" "/lib" \
@@ -24,36 +24,30 @@ set -euo pipefail
   --ro-bind "/etc/ca-certificates" "/etc/ca-certificates" \
   --ro-bind "/etc/localtime" "/etc/localtime" \
   --ro-bind "/etc/containers/seccomp.json" "/etc/containers/seccomp.json" \
-  --ro-bind "$HOME/.bwrap/.codeBox/etc/hosts" "/etc/hosts" \
-  --ro-bind "$HOME/.bwrap/.codeBox/etc/resolv.conf" "/etc/resolv.conf" \
-  --ro-bind "$HOME/.bwrap/.codeBox/etc/environment" "/etc/environment" \
-  --ro-bind "$HOME/.bwrap/.codeBox/machine-id" "/etc/machine-id" \
-  --ro-bind "$HOME/.bwrap/.codeBox/machine-id" "/var/lib/dbus/machine-id" \
+  --ro-bind "$HOME/.bwrap/codbox/etc/hosts" "/etc/hosts" \
+  --ro-bind "$HOME/.bwrap/codbox/etc/resolv.conf" "/etc/resolv.conf" \
+  --ro-bind "$HOME/.bwrap/codbox/etc/environment" "/etc/environment" \
+  --ro-bind "$HOME/.bwrap/codbox/etc/machine-id" "/etc/machine-id" \
+  --ro-bind "$HOME/.bwrap/codbox/etc/machine-id" "/var/lib/dbus/machine-id" \
   --proc "/proc" \
   --dev "/dev" \
   --tmpfs "/tmp" \
-  --bind-try "$HOME/github" "/home/cod1ng/build/github" \
-  --bind-try "$HOME/.bwrap/.codeBox/.tircx" "/home/cod1ng/.tircx" \
-  --bind-try "$HOME/.bwrap/.codeBox/.deno" "/home/cod1ng/.deno" \
-  --bind-try "$HOME/.bwrap/.codeBox/.gitconfig" "/home/cod1ng/.gitconfig" \
-  --bind-try "$HOME/.bwrap/.codeBox/.curlrc" "/home/cod1ng/.curlrc" \
-  --bind-try "$HOME/.bwrap/.codeBox/.tmux.conf" "/home/cod1ng/.tmux.conf" \
-  --bind-try "$HOME/.bwrap/.codeBox/.config/tmux" "/home/cod1ng/.config/tmux" \
-  --bind-try "$HOME/.bwrap/.codeBox/.config/lazy" "/home/cod1ng/.config/lazy" \
-  --bind-try "$HOME/.bwrap/.codeBox/.config/github-copilot" "/home/cod1ng/.config/github-copilot" \
-  --bind-try "$HOME/.bwrap/.codeBox/.config/nvim" "/home/cod1ng/.config/nvim" \
-  --bind-try "$HOME/check/dot/craftdog/.config/nvim" "/home/cod1ng/.config/test-vim/.cdog-demo" \
-  --bind-try "$HOME/.bwrap/.codeBox/.neovim-ghq" "/home/cod1ng/.neovim-ghq" \
-  --bind-try "$HOME/.bwrap/.codeBox/.config/yarn/lsp" "/home/cod1ng/.config/yarn/lsp" \
-  --bind-try "$HOME/.bwrap/.codeBox/.config/yarn/sveltelsp" "/home/cod1ng/.config/yarn/sveltelsp" \
-  --bind-try "$HOME/.bwrap/.codeBox/.config/yarn/global" "/home/cod1ng/.config/yarn/global" \
-  --bind-try "$HOME/.bwrap/.codeBox/.config/yarn/bin" "/home/cod1ng/.config/yarn/bin" \
-  --bind-try "$HOME/.bwrap/.codeBox/.config/nushell" "/home/cod1ng/.config/nushell" \
-  --bind-try "$HOME/.bwrap/.codeBox/.config/fish" "/home/cod1ng/.config/fish" \
-  --bind-try "$HOME/.bwrap/.codeBox/.local" "/home/cod1ng/.local" \
-  --bind-try "$HOME/.bwrap/.codeBox/.cache" "/home/cod1ng/.cache" \
-  --bind-try "$HOME/.bwrap/.codeBox/usr/local" "/usr/local" \
-/usr/bin/fish -c "tmux new-session -s codeTest01") \
-11< <(getent passwd $UID 65522) \
-12< <(getent group $(id -g) 55321) \
+  --bind-try "$HOME/test" "/home/cb/build/" \
+  --bind-try "$HOME/.bwrap/codbox/.tircx" "/home/cb/.tircx" \
+  --bind-try "$HOME/.bwrap/codbox/.gitconfig" "/home/cb/.gitconfig" \
+  --bind-try "$HOME/.bwrap/codbox/.curlrc" "/home/cb/.curlrc" \
+  --bind-try "$HOME/.bwrap/codbox/.config/lazy" "/home/cb/.config/lazy" \
+  --bind-try "$HOME/.bwrap/codbox/.config/github-copilot" "/home/cb/.config/github-copilot" \
+  --bind-try "$HOME/.bwrap/codbox/.config/nvim" "/home/cb/.config/nvim" \
+  --bind-try "$HOME/.bwrap/codbox/.neovim-ghq" "/home/cb/.neovim-ghq" \
+  --bind-try "$HOME/.bwrap/codbox/.config/yarn/lsp" "/home/cb/.config/yarn/lsp" \
+  --bind-try "$HOME/.bwrap/codbox/.config/yarn/global" "/home/cb/.config/yarn/global" \
+  --bind-try "$HOME/.bwrap/codbox/.config/yarn/bin" "/home/cb/.config/yarn/bin" \
+  --bind-try "$HOME/.bwrap/codbox/.config/fish" "/home/cb/.config/fish" \
+  --bind-try "$HOME/.bwrap/codbox/.local" "/home/cb/.local" \
+  --bind-try "$HOME/.bwrap/codbox/.cache" "/home/cb/.cache" \
+  --bind-try "$HOME/.bwrap/codbox/usr/local" "/usr/local" \
+/usr/bin/fish) \
+11< <(getent passwd $UID 651112) \
+12< <(getent group $(id -g) 532329) \
 

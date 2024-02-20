@@ -5,7 +5,7 @@ set -euo pipefail
     --unshare-all \
     --share-net \
     --clearenv \
-    --setenv HOME /home/devdesk \
+    --setenv HOME /home/ff \
     --setenv GTK_THEME Adwaita:light \
     --setenv MOZ_ENABLE_WAYLAND 1 \
     --setenv WAYLAND_DISPLAY "$WAYLAND_DISPLAY" \
@@ -13,7 +13,7 @@ set -euo pipefail
     --setenv LANG "$LANG" \
     --setenv PATH /usr/bin \
     --unsetenv DBUS_SESSION_BUS_ADDRESS \
-    --hostname fds \
+    --hostname fs \
     --ro-bind /usr/lib64/ld-linux-x86-64.so.2 /lib64/ld-linux-x86-64.so.2 \
     --ro-bind /usr/lib /usr/lib \
     --ro-bind /usr/bin/sh /usr/bin/sh \
@@ -31,21 +31,21 @@ set -euo pipefail
     --ro-bind /usr/share/mime /usr/share/mime \
     --ro-bind /run/user/"$(id -u)"/"$WAYLAND_DISPLAY" /run/user/"$(id -u)"/"$WAYLAND_DISPLAY" \
     --ro-bind /run/user/"$(id -u)"/bus /run/user/"$(id -u)"/bus \
-    --ro-bind "$HOME"/.bwrap/devbox/.config/dconf/user /home/devdesk/.config/dconf/user \
+    --ro-bind "$HOME"/.bwrap/fbox/.config/dconf/user /home/ff/.config/dconf/user \
     --dev-bind /dev/dri /dev/dri \
     --dev /dev \
     --proc /proc \
     --tmpfs /tmp \
-    --ro-bind "$HOME"/.bwrap/devbox/machine-id /etc/machine-id \
-    --ro-bind "$HOME"/.bwrap/devbox/machine-id /var/lib/dbus/machine-id \
-    --ro-bind "$HOME"/.bwrap/devbox/etc/hosts /etc/hosts \
-    --bind-try "$HOME"/.bwrap/devbox/run/user/"$(id -u)"/dconf/user /run/user/"$(id -u)"/dconf/user \
-    --bind-try "$HOME"/.bwrap/devbox/.mozilla /home/devdesk/.mozilla \
-    --bind-try "$HOME"/.bwrap/devbox/.cache/ /home/devdesk/.cache \
+    --ro-bind "$HOME"/.bwrap/fbox/machine-id /etc/machine-id \
+    --ro-bind "$HOME"/.bwrap/fbox/machine-id /var/lib/dbus/machine-id \
+    --ro-bind "$HOME"/.bwrap/fbox/etc/hosts /etc/hosts \
+    --bind-try "$HOME"/.bwrap/fbox/run/user/"$(id -u)"/dconf/user /run/user/"$(id -u)"/dconf/user \
+    --bind-try "$HOME"/.bwrap/fbox/.mozilla /home/ff/.mozilla \
+    --bind-try "$HOME"/.bwrap/fbox/.cache/ /home/ff/.cache \
     --die-with-parent \
     --new-session \
-    --uid 216 --gid 131 \
-    /usr/lib/firefox-developer-edition/firefox --no-remote -P
+    --uid 218 --gid 136 \
+    /usr/lib/firefox/firefox --no-remote -P
 )
 
 #    --ro-bind /usr/share/libdrm /usr/share/libdrm \

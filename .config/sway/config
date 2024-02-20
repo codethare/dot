@@ -1,0 +1,9 @@
+set $mod Mod1
+set $term alacritty
+set $termBkup foot
+set $menu dmenu
+
+
+include /etc/sway/config.d/*
+
+exec start-sway
