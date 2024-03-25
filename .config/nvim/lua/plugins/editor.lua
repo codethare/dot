@@ -36,6 +36,7 @@ return {
   },
 
   {
+    enabled = false,
     "dinhhuy258/git.nvim",
     event = "BufReadPre",
     opts = {

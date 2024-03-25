@@ -6,13 +6,13 @@ set -euo pipefail
   --share-net \
   --clearenv \
   --setenv "PATH" "/usr/bin" \
-  --setenv "HOME" "/home/nm" \
-  --setenv "USER" "/home/nm" \
-  --setenv "LOGNAME" "/home/nm" \
+  --setenv "HOME" "/home/nsb" \
+  --setenv "USER" "/home/nsb" \
+  --setenv "LOGNAME" "/home/nsb" \
   --setenv "TERM" "$TERM" \
   --hostname "nat" \
   --symlink "/usr/bin" "/bin" \
-  --symlink "/usr/bin" "/nmin" \
+  --symlink "/usr/bin" "/nsbin" \
   --symlink "/usr/lib" "/lib" \
   --ro-bind "/usr/lib" "/usr/lib" \
   --ro-bind "/usr/share" "/usr/share" \
@@ -33,24 +33,22 @@ set -euo pipefail
   --proc "/proc" \
   --dev "/dev" \
   --tmpfs "/tmp" \
-  --bind-try "$HOME/gt/test" "/home/nm/build/" \
-  --bind-try "$HOME/.bwrap/codbox/.tircx" "/home/nm/.tircx" \
-  --bind-try "$HOME/.bwrap/codbox/.tmux.conf" "/home/nm/.tmux.conf" \
-  --bind-try "$HOME/.bwrap/codbox/.gitconfig" "/home/nm/.gitconfig" \
-  --bind-try "$HOME/.bwrap/codbox/.curlrc" "/home/nm/.curlrc" \
-  --bind-try "$HOME/.bwrap/codbox/.config/lazy" "/home/nm/.config/lazy" \
-  --bind-try "$HOME/.bwrap/codbox/.config/github-copilot" "/home/nm/.config/github-copilot" \
-  --bind-try "$HOME/.bwrap/codbox/.config/nvim" "/home/nm/.config/nvim" \
-  --bind-try "$HOME/.bwrap/codbox/.neovim-ghq" "/home/nm/.neovim-ghq" \
-  --bind-try "$HOME/.bwrap/codbox/.config/yarn/lsp" "/home/nm/.config/yarn/lsp" \
-  --bind-try "$HOME/.bwrap/codbox/.config/yarn/global" "/home/nm/.config/yarn/global" \
-  --bind-try "$HOME/.bwrap/codbox/.config/yarn/bin" "/home/nm/.config/yarn/bin" \
-  --bind-try "$HOME/.bwrap/codbox/.config/fish" "/home/nm/.config/fish" \
-  --bind-try "$HOME/.bwrap/codbox/.local" "/home/nm/.local" \
-  --bind-try "$HOME/.bwrap/codbox/.cache" "/home/nm/.cache" \
+  --bind-try "$HOME/gt/test" "/home/nsb/build/" \
+  --bind-try "$HOME/.bwrap/codbox/.tircx" "/home/nsb/.tircx" \
+  --bind-try "$HOME/.bwrap/codbox/.gitconfig" "/home/nsb/.gitconfig" \
+  --bind-try "$HOME/.bwrap/codbox/.curlrc" "/home/nsb/.curlrc" \
+  --bind-try "$HOME/.bwrap/codbox/.config/lazy" "/home/nsb/.config/lazy" \
+  --bind-try "$HOME/.bwrap/codbox/.config/github-copilot" "/home/nsb/.config/github-copilot" \
+  --bind-try "$HOME/.bwrap/codbox/.config/nvim" "/home/nsb/.config/nvim" \
+  --bind-try "$HOME/.bwrap/codbox/.neovim-ghq" "/home/nsb/.neovim-ghq" \
+  --bind-try "$HOME/.bwrap/codbox/.config/yarn/lsp" "/home/nsb/.config/yarn/lsp" \
+  --bind-try "$HOME/.bwrap/codbox/.config/yarn/global" "/home/nsb/.config/yarn/global" \
+  --bind-try "$HOME/.bwrap/codbox/.config/yarn/bin" "/home/nsb/.config/yarn/bin" \
+  --bind-try "$HOME/.bwrap/codbox/.config/fish" "/home/nsb/.config/fish" \
+  --bind-try "$HOME/.bwrap/codbox/.local" "/home/nsb/.local" \
+  --bind-try "$HOME/.bwrap/codbox/.cache" "/home/nsb/.cache" \
   --bind-try "$HOME/.bwrap/codbox/usr/local" "/usr/local" \
 /usr/bin/fish) \
-# /usr/bin/fish -c "tmux new-session -s test03") \
 11< <(getent passwd $UID 651112) \
 12< <(getent group $(id -g) 532328) \
 

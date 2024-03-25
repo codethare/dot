@@ -8,7 +8,7 @@ keybinds clear-defaults=true {
         bind "Ctrl g" { SwitchToMode "Normal"; }
     }
     resize {
-        bind "Ctrl s" { SwitchToMode "Normal"; }
+        bind "F11" { SwitchToMode "Normal"; }
         bind "h" "Left" { Resize "Left"; }
         bind "j" "Down" { Resize "Down"; }
         bind "k" "Up" { Resize "Up"; }
@@ -17,7 +17,7 @@ keybinds clear-defaults=true {
         bind "-" { Resize "Decrease"; }
     }
     pane {
-        bind "Ctrl e" { SwitchToMode "Normal"; }
+        bind "F12" { SwitchToMode "Normal"; }
         bind "h" "Left" { MoveFocus "Left"; }
         bind "l" "Right" { MoveFocus "Right"; }
         bind "j" "Down" { MoveFocus "Down"; }
@@ -61,7 +61,7 @@ keybinds clear-defaults=true {
         bind "Tab" { ToggleTab; }
     }
     scroll {
-        bind "Ctrl s" { SwitchToMode "Normal"; }
+        bind "F11" { SwitchToMode "Normal"; }
         bind "e" { EditScrollback; SwitchToMode "Normal"; }
         bind "s" { SwitchToMode "EnterSearch"; SearchInput 0; }
         bind "Ctrl c" { ScrollToBottom; SwitchToMode "Normal"; }
@@ -75,7 +75,7 @@ keybinds clear-defaults=true {
         // bind "Alt c" { Copy; }
     }
     search {
-        bind "Ctrl s" { SwitchToMode "Normal"; }
+        bind "F11" { SwitchToMode "Normal"; }
         bind "Ctrl c" { ScrollToBottom; SwitchToMode "Normal"; }
         bind "j" "Down" { ScrollDown; }
         bind "k" "Up" { ScrollUp; }
@@ -103,7 +103,7 @@ keybinds clear-defaults=true {
     }
     session {
         bind "Ctrl o" { SwitchToMode "Normal"; }
-        bind "Ctrl s" { SwitchToMode "Scroll"; }
+        bind "F11" { SwitchToMode "Scroll"; }
         bind "d" { Detach; }
     }
     tmux {
@@ -143,13 +143,13 @@ keybinds clear-defaults=true {
         bind "Enter" "Space" "Esc" { SwitchToMode "Normal"; }
     }
     shared_except "pane" "locked" {
-        bind "Ctrl e" { SwitchToMode "Pane"; }
+        bind "F12" { SwitchToMode "Pane"; }
     }
     shared_except "resize" "locked" {
-        bind "Ctrl s" { SwitchToMode "Resize"; }
+        bind "F11" { SwitchToMode "Resize"; }
     }
     shared_except "scroll" "locked" {
-        bind "Ctrl s" { SwitchToMode "Scroll"; }
+        bind "F11" { SwitchToMode "Scroll"; }
     }
     shared_except "session" "locked" {
         bind "Ctrl o" { SwitchToMode "Session"; }
@@ -294,3 +294,4 @@ plugins {
 // The folder in which Zellij will look for themes
 //
 // theme_dir "/path/to/my/theme_dir"
+

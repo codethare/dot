@@ -36,8 +36,8 @@ set -euo pipefail
     --dev /dev \
     --proc /proc \
     --tmpfs /tmp \
-    --ro-bind "$HOME"/.bwrap/devbox/machine-id /etc/machine-id \
-    --ro-bind "$HOME"/.bwrap/devbox/machine-id /var/lib/dbus/machine-id \
+    --ro-bind "$HOME"/.bwrap/devbox/etc/machine-id /etc/machine-id \
+    --ro-bind "$HOME"/.bwrap/devbox/etc/machine-id /var/lib/dbus/machine-id \
     --ro-bind "$HOME"/.bwrap/devbox/etc/hosts /etc/hosts \
     --bind-try "$HOME"/.bwrap/devbox/run/user/"$(id -u)"/dconf/user /run/user/"$(id -u)"/dconf/user \
     --bind-try "$HOME"/.bwrap/devbox/.mozilla /home/devdesk/.mozilla \
@@ -45,7 +45,7 @@ set -euo pipefail
     --die-with-parent \
     --new-session \
     --uid 216 --gid 131 \
-    /usr/lib/firefox-developer-edition/firefox --no-remote -P
+    /usr/lib/firefox-developer-edition//firefox --no-remote -P
 )
 
 #    --ro-bind /usr/share/libdrm /usr/share/libdrm \

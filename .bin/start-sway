@@ -1,8 +1,4 @@
 #!/bin/sh -x
 
-# fcitx5 -d --replace & 
-
 swaymsg workspace 1
-swaymsg exec "$term -e $HOME/.bin/ffDEV"
-
-
+swaymsg exec "$TERM -e $HOME/.bin/bwrap/ffDEV"

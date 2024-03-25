@@ -1,0 +1,6 @@
+input type:keyboard {
+     xkb_layout us
+     xkb_variant altgr-intl
+     xkb_options caps:swapescape,ctrl:swap_lalt_lctl_lwin,ctrl:swap_rwin_rctl,ctrl:menu_rctrl,ctrl:ralt_rctrl
+}
+

@@ -1,4 +1,3 @@
-vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
 
@@ -35,7 +34,7 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 
 vim.wo.number = true
--- vim.wo.relativenumber = false
+vim.wo.relativenumber = true
 -- vim.opt.colorcolumn = "80"     --hei line
 
 -- status line
@@ -63,10 +62,9 @@ vim.opt.switchbuf = { 'usetab' }
 
 -- npm && yarn $PATH
 vim.cmd([[ let $PATH = expand('$HOME/.config/yarn/lsp/node_modules') . '/.bin:' . $PATH ]])
--- vim.cmd([[ let $PATH = expand('$HOME/.config/yarn/sveltelsp/node_modules') . '/.bin:' . $PATH ]])
 
--- vim.env.http_proxy = 'socks5://127.0.91.55:5123'
--- vim.env.https_proxy = 'socks5://127.0.91.55:5123'
+-- vim.env.http_proxy = 'socks5://127.0.3.13:9918'
+vim.env.https_proxy = 'socks5://127.0.3.13:9918'
 
 vim.cmd([[au BufNewFile,BufRead *.astro setf astro]])
 

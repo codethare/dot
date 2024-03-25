@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+(exec bwrap \
+  --unshare-all \
+  --share-net \
+  --clearenv \
+  --setenv "PATH" "/usr/bin" \
+  --setenv "HOME" "/home/dev" \
+  --setenv "USER" "/home/dev" \
+  --setenv "LOGNAME" "/home/dev" \
+  --setenv "TERM" "$TERM" \
+  --hostname "devserver" \
+  --symlink "/usr/bin" "/bin" \
+  --symlink "/usr/bin" "/sbin" \
+  --symlink "/usr/lib" "/lib" \
+  --ro-bind "/usr/lib" "/usr/lib" \
+  --ro-bind "/usr/share" "/usr/share" \
+  --ro-bind "/usr/bin" "/usr/bin" \
+  --ro-bind "/usr/lib64/ld-linux-x86-64.so.2" "/lib64/ld-linux-x86-64.so.2" \
+  --ro-bind "/etc/fonts" "/etc/fonts" \
+  --ro-bind "/etc/resolv.conf" "/etc/resolv.conf" \
+  --ro-bind "/etc/ssl" "/etc/ssl" \
+  --ro-bind "/etc/ca-certificates" "/etc/ca-certificates" \
+  --ro-bind "/etc/localtime" "/etc/localtime" \
+  --ro-bind "/etc/containers/seccomp.json" "/etc/containers/seccomp.json" \
+  --ro-bind "$HOME/.bwrap/dev-ser-box/etc/hosts" "/etc/hosts" \
+  --ro-bind "$HOME/.bwrap/dev-ser-box/etc/machine-id" "/etc/machine-id" \
+  --ro-bind "$HOME/.bwrap/dev-ser-box/etc/machine-id" "/var/lib/dbus/machine-id" \
+  --ro-bind "$HOME/.bwrap/dev-ser-box/etc/hosts" "/etc/hosts" \
+  --ro-bind "$HOME/.bwrap/dev-ser-box/.config/fish" "/home/dev/.config/fish" \
+  --proc "/proc" \
+  --dev "/dev" \
+  --tmpfs "/tmp" \
+  --bind-try "$HOME/gt/test/daybyday" "/home/dev/dayPost" \
+/usr/bin/fish) \
+11< <(getent passwd $UID 65114) \
+12< <(getent group $(id -g) 53113) \
+

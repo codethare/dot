@@ -1,9 +1,7 @@
 set $mod Mod1
-set $term alacritty
-set $termBkup foot
-set $menu dmenu
-
+set $term foot
+set $termBkup alacritty
+set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 include /etc/sway/config.d/*
-
-exec start-sway
+include ~/.config/sway/config.d/*

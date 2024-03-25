@@ -30,7 +30,7 @@ return {
         },
         view = "notify_send",
         opts = { stop = false },
-      })
+     })
 
       opts.commands = {
         all = {
@@ -72,21 +72,9 @@ return {
     },
   },
 
-  -- statusline
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    opts = {
-      options = {
-        -- globalstatus = false,
-        theme = "solarized_dark",
-      },
-    },
-  },
-
-
   -- filename
   {
+    enabled = false,
     "b0o/incline.nvim",
     dependencies = { "craftzdog/solarized-osaka.nvim" },
     event = "BufReadPre",
@@ -120,5 +108,27 @@ return {
         end,
       })
     end,
+  },
+  {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    opts = {
+      window = {
+        options = {
+          signcolumn = "no", -- disable signcolumn
+          number = false, -- disable number column
+          relativenumber = false, -- disable relative numbers
+          cursorline = false, -- disable cursorline
+          cursorcolumn = false, -- disable cursor column
+          list = false, -- disable whitespace characters
+        },
+      },
+      plugins = {
+        gitsigns = true,
+        tmux = true,
+        kitty = { enabled = false, font = "+2" },
+      },
+    },
+    keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
   },
 }

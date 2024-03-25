@@ -1,8 +1,6 @@
 default_border pixel 3
 focus_on_window_activation urgent
 
-assign [app_id="firefox"] → firefox
-
 for_window [title=".*"] title_format %title (class=%class app_id=%app_id instance=%instance shell=%shell)
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
 
