@@ -8,7 +8,6 @@ set -euo pipefail
     --setenv HOME /home/devdesk \
     --setenv GTK_THEME Adwaita:light \
     --setenv MOZ_ENABLE_WAYLAND 1 \
-    --setenv WAYLAND_DISPLAY "$WAYLAND_DISPLAY" \
     --setenv XDG_RUNTIME_DIR "$XDG_RUNTIME_DIR" \
     --setenv LANG "$LANG" \
     --setenv PATH /usr/bin \
@@ -29,7 +28,6 @@ set -euo pipefail
     --ro-bind /usr/share/X11/xkb /usr/share/X11/xkb \
     --ro-bind /usr/share/icons /usr/share/icons \
     --ro-bind /usr/share/mime /usr/share/mime \
-    --ro-bind /run/user/"$(id -u)"/"$WAYLAND_DISPLAY" /run/user/"$(id -u)"/"$WAYLAND_DISPLAY" \
     --ro-bind /run/user/"$(id -u)"/bus /run/user/"$(id -u)"/bus \
     --ro-bind "$HOME"/.bwrap/devbox/.config/dconf/user /home/devdesk/.config/dconf/user \
     --dev-bind /dev/dri /dev/dri \
@@ -45,7 +43,7 @@ set -euo pipefail
     --die-with-parent \
     --new-session \
     --uid 216 --gid 131 \
-    /usr/lib/firefox-developer-edition/firefox --no-remote -P
+    /usr/lib/firefox-developer-edition/firefox --no-remote -headless "localhost:3010"
 )
 
 #    --ro-bind /usr/share/libdrm /usr/share/libdrm \

@@ -13,6 +13,7 @@ else
     fi
 fi
 
+alias dayDev='cd ~/gt/test/daybyday/ && pnpm dev'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias tree='exa --tree -alh --icons --color=always'

@@ -30,6 +30,7 @@ set -euo pipefail
   --ro-bind "$HOME/.bwrap/codbox/etc/environment" "/etc/environment" \
   --ro-bind "$HOME/.bwrap/codbox/etc/machine-id" "/etc/machine-id" \
   --ro-bind "$HOME/.bwrap/codbox/etc/machine-id" "/var/lib/dbus/machine-id" \
+  --ro-bind "$HOME/.bwrap/codbox/usr/local" "/usr/local" \
   --proc "/proc" \
   --dev "/dev" \
   --tmpfs "/tmp" \
@@ -39,18 +40,14 @@ set -euo pipefail
   --bind-try "$HOME/.bwrap/codbox/.gitconfig" "/home/nm/.gitconfig" \
   --bind-try "$HOME/.bwrap/codbox/.curlrc" "/home/nm/.curlrc" \
   --bind-try "$HOME/.bwrap/codbox/.config/lazy" "/home/nm/.config/lazy" \
-  --bind-try "$HOME/.bwrap/codbox/.config/github-copilot" "/home/nm/.config/github-copilot" \
   --bind-try "$HOME/.bwrap/codbox/.config/nvim" "/home/nm/.config/nvim" \
   --bind-try "$HOME/.bwrap/codbox/.neovim-ghq" "/home/nm/.neovim-ghq" \
   --bind-try "$HOME/.bwrap/codbox/.config/yarn/lsp" "/home/nm/.config/yarn/lsp" \
-  --bind-try "$HOME/.bwrap/codbox/.config/yarn/global" "/home/nm/.config/yarn/global" \
-  --bind-try "$HOME/.bwrap/codbox/.config/yarn/bin" "/home/nm/.config/yarn/bin" \
   --bind-try "$HOME/.bwrap/codbox/.config/fish" "/home/nm/.config/fish" \
+  --bind-try "$HOME/.bwrap/codbox/.config/zellij" "/home/nm/.config/zellij" \
   --bind-try "$HOME/.bwrap/codbox/.local" "/home/nm/.local" \
   --bind-try "$HOME/.bwrap/codbox/.cache" "/home/nm/.cache" \
-  --bind-try "$HOME/.bwrap/codbox/usr/local" "/usr/local" \
-/usr/bin/fish) \
-# /usr/bin/fish -c "tmux new-session -s test03") \
+  /usr/bin/fish -c 'zellij attach mellifluous-ocelot') \
 11< <(getent passwd $UID 651112) \
 12< <(getent group $(id -g) 532328) \
 
