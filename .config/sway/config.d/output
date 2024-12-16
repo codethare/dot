@@ -1,0 +1,3 @@
+output 'Red Hat, Inc. QEMU Monitor Unknown' {
+   mode 1360x768@60.015Hz
+}

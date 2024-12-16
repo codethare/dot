@@ -32,8 +32,7 @@ set -euo pipefail
   --proc "/proc" \
   --dev "/dev" \
   --tmpfs "/tmp" \
-  --bind-try "$HOME/gt/test/daybyday" "/home/dev/dayPost" \
-  --bind-try "$HOME/gt/test/homepage" "/home/dev/homePost" \
+  --bind-try "$HOME/gt/test/whatYouNeedProject" "/home/dev/whatYouNeedProject" \
 /usr/bin/fish) \
 11< <(getent passwd $UID 65114) \
 12< <(getent group $(id -g) 53113) \

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+cd $HOME/.config/vvv/web &&
+set -euo pipefail
+(exec bwrap \
+    --ro-bind /opt/vvv/geoip.dat /usr/share/v2ray/geoip.dat \
+    --ro-bind /opt/vvv/geosite.dat /usr/share/v2ray/geosite.dat \
+    --ro-bind /opt/vvv/vpoint_socks_vmess.json /etc/v2ray/vpoint_socks_vmess.json \
+    --ro-bind /opt/vvv/vpoint_vmess_freedom.json /etc/v2ray/vpoint_vmess_freedom.json \
+    --ro-bind /opt/vvv/v2ray /opt/vvv/v2ray \
+    --ro-bind $HOME/.config/vvv/web/config.json $HOME/.config/vvv/web/config.json \
+    --ro-bind /etc/resolv.conf /etc/resolv.conf \
+    --symlink /opt/vvv/v2ray /usr/bin/v2ray \
+    --hostname thisIsHostName \
+    --unshare-pid \
+    --unshare-uts \
+    --unshare-cgroup-try \
+    --unshare-user \
+    /usr/bin/v2ray run)
+

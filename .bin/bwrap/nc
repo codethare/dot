@@ -12,7 +12,7 @@ set -euo pipefail
   --setenv "TERM" "$TERM" \
   --hostname "nat" \
   --symlink "/usr/bin" "/bin" \
-  --symlink "/usr/bin" "/nmin" \
+  --symlink "/usr/bin" "/sbin" \
   --symlink "/usr/lib" "/lib" \
   --ro-bind "/usr/lib" "/usr/lib" \
   --ro-bind "/usr/share" "/usr/share" \

@@ -11,7 +11,7 @@ return {
   { "akinsho/bufferline.nvim", enabled = false },
   { "nvimdev/dashboard-nvim", enabled = false },
   { "rcarriga/nvim-notify", enabled = false },
-  { "folke/noice.nvim", enabled = false },
+  -- { "folke/noice.nvim", enabled = false },
   { "folke/flash.nvim", enabled = false },
   { "folke/neodev.nvim", enabled = false },      -- docs and completion for the nvim lua API
   { "folke/which-key.nvim", enabled = false },
@@ -21,7 +21,7 @@ return {
   { "simrat39/symbols-outline.nvim", enabled = false },
   { "echasnovski/mini.bracketed", enabled = false },
   { "echasnovski/mini.bufremove", enabled = false },
-  { "echasnovski/mini.animate", enabled = false },
+  -- { "echasnovski/mini.animate", enabled = false },
   { "echasnovski/mini.ai", enabled = false },
   { "lukas-reineke/indent-blankline.nvim", enabled = false },
 }
