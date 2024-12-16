@@ -2,52 +2,51 @@
 
 set -euo pipefail
 (exec bwrap \
-  --unshare-all \
-  --share-net \
-  --clearenv \
-  --setenv "PATH" "/usr/bin" \
-  --setenv "HOME" "/home/nm" \
-  --setenv "USER" "/home/nm" \
-  --setenv "LOGNAME" "/home/nm" \
-  --setenv "TERM" "$TERM" \
-  --hostname "nat" \
-  --symlink "/usr/bin" "/bin" \
-  --symlink "/usr/bin" "/sbin" \
-  --symlink "/usr/lib" "/lib" \
-  --ro-bind "/usr/lib" "/usr/lib" \
-  --ro-bind "/usr/share" "/usr/share" \
-  --ro-bind "/usr/bin" "/usr/bin" \
-  --ro-bind "/usr/lib64/ld-linux-x86-64.so.2" "/lib64/ld-linux-x86-64.so.2" \
-  --ro-bind "/etc/fonts" "/etc/fonts" \
-  --ro-bind "/etc/resolv.conf" "/etc/resolv.conf" \
-  --ro-bind "/etc/ssl" "/etc/ssl" \
-  --ro-bind "/etc/ca-certificates" "/etc/ca-certificates" \
-  --ro-bind "/etc/localtime" "/etc/localtime" \
-  --ro-bind "/etc/containers/seccomp.json" "/etc/containers/seccomp.json" \
-  --ro-bind "$HOME/.bwrap/codbox/etc/hosts" "/etc/hosts" \
-  --ro-bind "$HOME/.bwrap/codbox/etc/resolv.conf" "/etc/resolv.conf" \
-  --ro-bind "$HOME/.bwrap/codbox/etc/proxychains.conf" "/etc/proxychains.conf" \
-  --ro-bind "$HOME/.bwrap/codbox/etc/environment" "/etc/environment" \
-  --ro-bind "$HOME/.bwrap/codbox/etc/machine-id" "/etc/machine-id" \
-  --ro-bind "$HOME/.bwrap/codbox/etc/machine-id" "/var/lib/dbus/machine-id" \
-  --ro-bind "$HOME/.bwrap/codbox/usr/local" "/usr/local" \
-  --proc "/proc" \
-  --dev "/dev" \
-  --tmpfs "/tmp" \
-  --bind-try "$HOME/gt/test" "/home/nm/build/" \
-  --bind-try "$HOME/.bwrap/codbox/.tircx" "/home/nm/.tircx" \
-  --bind-try "$HOME/.bwrap/codbox/.tmux.conf" "/home/nm/.tmux.conf" \
-  --bind-try "$HOME/.bwrap/codbox/.gitconfig" "/home/nm/.gitconfig" \
-  --bind-try "$HOME/.bwrap/codbox/.curlrc" "/home/nm/.curlrc" \
-  --bind-try "$HOME/.bwrap/codbox/.config/lazy" "/home/nm/.config/lazy" \
-  --bind-try "$HOME/.bwrap/codbox/.config/nvim" "/home/nm/.config/nvim" \
-  --bind-try "$HOME/.bwrap/codbox/.neovim-ghq" "/home/nm/.neovim-ghq" \
-  --bind-try "$HOME/.bwrap/codbox/.config/yarn/lsp" "/home/nm/.config/yarn/lsp" \
-  --bind-try "$HOME/.bwrap/codbox/.config/fish" "/home/nm/.config/fish" \
-  --bind-try "$HOME/.bwrap/codbox/.config/zellij" "/home/nm/.config/zellij" \
-  --bind-try "$HOME/.bwrap/codbox/.local" "/home/nm/.local" \
-  --bind-try "$HOME/.bwrap/codbox/.cache" "/home/nm/.cache" \
-  /usr/bin/fish -c 'zellij attach mellifluous-ocelot') \
+	--unshare-all \
+	--share-net \
+	--clearenv \
+	--setenv "PATH" "/usr/bin" \
+	--setenv "HOME" "/home/nm" \
+	--setenv "USER" "/home/nm" \
+	--setenv "LOGNAME" "/home/nm" \
+	--setenv "TERM" "$TERM" \
+	--hostname "nat" \
+	--ro-bind "/usr/bin" "/bin" \
+	--ro-bind "/usr/bin" "/sbin" \
+	--ro-bind "/usr/lib" "/lib" \
+	--ro-bind "/usr/share" "/usr/share" \
+	--ro-bind "/usr/bin" "/usr/bin" \
+	--ro-bind "/usr/lib64/ld-linux-x86-64.so.2" "/lib64/ld-linux-x86-64.so.2" \
+	--ro-bind "/etc/fonts" "/etc/fonts" \
+	--ro-bind "/etc/resolv.conf" "/etc/resolv.conf" \
+	--ro-bind "/etc/ssl" "/etc/ssl" \
+	--ro-bind "/etc/ca-certificates" "/etc/ca-certificates" \
+	--ro-bind "/etc/localtime" "/etc/localtime" \
+	--ro-bind "/etc/containers/seccomp.json" "/etc/containers/seccomp.json" \
+	--ro-bind "$HOME/.bwrap/codbox/etc/hosts" "/etc/hosts" \
+	--ro-bind "$HOME/.bwrap/codbox/etc/resolv.conf" "/etc/resolv.conf" \
+	--ro-bind "$HOME/.bwrap/codbox/etc/proxychains.conf" "/etc/proxychains.conf" \
+	--ro-bind "$HOME/.bwrap/codbox/etc/environment" "/etc/environment" \
+	--ro-bind "$HOME/.bwrap/codbox/etc/machine-id" "/etc/machine-id" \
+	--ro-bind "$HOME/.bwrap/codbox/etc/machine-id" "/var/lib/dbus/machine-id" \
+	--ro-bind "$HOME/.bwrap/codbox/usr/local" "/usr/local" \
+	--proc "/proc" \
+	--dev "/dev" \
+	--tmpfs "/tmp" \
+	--bind-try "$HOME/gt/test" "/home/nm/build/" \
+	--bind-try "$HOME/.bwrap/codbox/.tircx" "/home/nm/.tircx" \
+	--bind-try "$HOME/.bwrap/codbox/.tmux.conf" "/home/nm/.tmux.conf" \
+	--bind-try "$HOME/.bwrap/codbox/.gitconfig" "/home/nm/.gitconfig" \
+	--bind-try "$HOME/.bwrap/codbox/.curlrc" "/home/nm/.curlrc" \
+	--bind-try "$HOME/.bwrap/codbox/.config/lazy" "/home/nm/.config/lazy" \
+	--bind-try "$HOME/.bwrap/codbox/.config/nvim" "/home/nm/.config/nvim" \
+	--bind-try "$HOME/.bwrap/codbox/.neovim-ghq" "/home/nm/.neovim-ghq" \
+	--bind-try "$HOME/.bwrap/codbox/.config/yarn/lsp" "/home/nm/.config/yarn/lsp" \
+	--bind-try "$HOME/.bwrap/codbox/.config/fish" "/home/nm/.config/fish" \
+	--bind-try "$HOME/.bwrap/codbox/.config/zellij" "/home/nm/.config/zellij" \
+	--bind-try "$HOME/.bwrap/codbox/.local" "/home/nm/.local" \
+	--bind-try "$HOME/.bwrap/codbox/.cache" "/home/nm/.cache" \
+/usr/bin/fish) \
 11< <(getent passwd $UID 651112) \
 12< <(getent group $(id -g) 532328) \
 
