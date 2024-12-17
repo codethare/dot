@@ -11,9 +11,10 @@ set -euo pipefail
 	--setenv "LOGNAME" "/home/nm" \
 	--setenv "TERM" "$TERM" \
 	--hostname "nat" \
-	--ro-bind "/usr/bin" "/bin" \
-	--ro-bind "/usr/bin" "/sbin" \
-	--ro-bind "/usr/lib" "/lib" \
+	--symlink "/usr/bin" "/bin" \
+	--symlink "/usr/bin" "/sbin" \
+	--symlink "/usr/lib" "/lib" \
+	--ro-bind "/usr/lib" "/usr/lib" \
 	--ro-bind "/usr/share" "/usr/share" \
 	--ro-bind "/usr/bin" "/usr/bin" \
 	--ro-bind "/usr/lib64/ld-linux-x86-64.so.2" "/lib64/ld-linux-x86-64.so.2" \

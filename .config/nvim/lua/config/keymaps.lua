@@ -70,11 +70,6 @@ keymap.set("n", "<C-w><right>", "<C-w>>")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
--- __________________________________________
---                                   Zen Mode
--- keymap.set("n", "<C-L>", function()
---   require("user.keyline").toggle_line_numbers()
--- end,{noremap = true, silent = true})
 
 -- __________________________________________
 --  Do things without affecting the registers
@@ -103,4 +98,5 @@ end)
 keymap.set("n", "<leader>i", function()
   require("user.lsp").toggleInlayHints()
 end)
+
 
