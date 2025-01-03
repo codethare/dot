@@ -1,5 +1,6 @@
 return {
-	-- Incremental rename
+  -----------------------------------------------------------------------------
+	--                                                        Incremental rename
 	{
 		"smjonas/inc-rename.nvim",
 		cmd = "IncRename",
@@ -14,7 +15,8 @@ return {
     end
   },
 
-  -- Better increase/descrease
+  -----------------------------------------------------------------------------
+  --                                                  Better increase/descrease
   {
     "monaqa/dial.nvim",
     -- stylua: ignore
@@ -36,4 +38,41 @@ return {
       })
     end,
   },
+
+  -----------------------------------------------------------------------------
+	--                                     Fast and feature-rich surround actions
+	-- {
+	-- 	'echasnovski/mini.surround',
+	-- 	-- stylua: ignore
+	-- 	keys = function(_, keys)
+	-- 		-- Populate the keys based on the user's options
+	-- 		local plugin = require('lazy.core.config').spec.plugins['mini.surround']
+	-- 		local opts = require('lazy.core.plugin').values(plugin, 'opts', false)
+	-- 		local mappings = {
+	-- 			{ opts.mappings.add, desc = 'Add Surrounding', mode = { 'n', 'v' } },
+	-- 			{ opts.mappings.delete, desc = 'Delete Surrounding' },
+	-- 			{ opts.mappings.find, desc = 'Find Right Surrounding' },
+	-- 			{ opts.mappings.find_left, desc = 'Find Left Surrounding' },
+	-- 			{ opts.mappings.highlight, desc = 'Highlight Surrounding' },
+	-- 			{ opts.mappings.replace, desc = 'Replace Surrounding' },
+	-- 			{ opts.mappings.update_n_lines, desc = 'Update `MiniSurround.config.n_lines`' },
+	-- 		}
+	-- 		mappings = vim.tbl_filter(function(m)
+	-- 			return m[1] and #m[1] > 0
+	-- 		end, mappings)
+	-- 		return vim.list_extend(mappings, keys)
+	-- 	end,
+	-- 	opts = {
+	-- 		mappings = {
+	-- 			add = 'sa', -- Add surrounding in Normal and Visual modes
+	-- 			delete = 'ds', -- Delete surrounding
+	-- 			find = 'gzf', -- Find surrounding (to the right)
+	-- 			find_left = 'gzF', -- Find surrounding (to the left)
+	-- 			highlight = 'gzh', -- Highlight surrounding
+	-- 			replace = 'cs', -- Replace surrounding
+	-- 			update_n_lines = 'gzn', -- Update `n_lines`
+	-- 		},
+	-- 	},
+	-- },
 }
+

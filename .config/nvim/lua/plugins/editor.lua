@@ -1,4 +1,19 @@
-return { 
+return {
+  {
+		"saghen/blink.cmp",
+		opts = {
+			completion = {
+				menu = {
+					winblend = vim.o.pumblend,
+				},
+			},
+			signature = {
+				window = {
+					winblend = vim.o.pumblend,
+				},
+			},
+		},
+	},
   {
     enabled = false,
     "dinhhuy258/git.nvim",
@@ -11,6 +26,21 @@ return {
         browse = "<Leader>go",
       },
     },
+  },
+
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = function(_, opts)
+      local function on_move(data)
+        Snacks.rename.on_rename_file(data.source, data.destination)
+      end
+      local events = require("neo-tree.events")
+      opts.event_handlers = opts.event_handlers or {}
+      vim.list_extend(opts.event_handlers, {
+        { event = events.FILE_MOVED, handler = on_move },
+        { event = events.FILE_RENAMED, handler = on_move },
+      })
+    end,
   },
 
   {

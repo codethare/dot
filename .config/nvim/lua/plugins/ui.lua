@@ -1,6 +1,28 @@
 return {
-  -- statusline
   {
+    "folke/snacks.nvim",
+    opts = {
+      dashboard = { enabled = false },
+      notify = { enabled = false },
+      notifier = { enabled = false },
+      statuscolumn = { enabled = false },
+      scroll = { enabled = false },
+    },
+    keys = {
+      { "<leader>z",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
+      { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
+      { "<c-/>",      function() Snacks.terminal() end, desc = "Toggle Terminal" },
+      { '<leader>S',  function() Snacks.scratch.select() end, desc = 'Select Scratch Buffer' },
+			{ '<leader>n',  function() Snacks.notifier.show_history() end, desc = 'Notification History' },
+			{ '<leader>un', function() Snacks.notifier.hide() end, desc = 'Dismiss All Notifications' },
+			{ '<leader>dps', function() Snacks.profiler.scratch() end, desc = 'Profiler Scratch Buffer' },
+    }
+  },
+
+  -----------------------------------------------------------------------------
+  --                                                                statusline
+  {
+    enabled = false,
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
       local LazyVim = require("lazyvim.util")
@@ -18,62 +40,8 @@ return {
     end,
   },
 
-  {
-    "folke/snacks.nvim",
-    opts = {
-      dashboard = { enabled = false },
-      notify = { enabled = false },
-      notifier = { enabled = false },
-      zen = {
-        show = {
-          statusline = false, -- can only be shown when using the global statusline
-          tabline = false,
-        },
-      },
-    },
-    keys = {
-      { "<leader>z",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
-      { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
-      { "<c-/>",      function() Snacks.terminal() end, desc = "Toggle Terminal" },
-    }
-  },
-
-  -- filename
-  {
-    enabled = false,
-    "b0o/incline.nvim",
-    dependencies = { "craftzdog/solarized-osaka.nvim" },
-    event = "BufReadPre",
-    priority = 1200,
-    config = function()
-      local colors = require("solarized-osaka.colors").setup()
-      require("incline").setup({
-        highlight = {
-          groups = {
-            InclineNormal = { guibg = colors.base2, guifg = colors.base04 },
-            InclineNormalNC = { guifg = colors.violet500, guibg = colors.base03 },
-          },
-        },
-        window = {
-          margin = {
-            vertical = 0,
-            horizontal = 1
-          },
-        },
-        hide = {
-          cursorline = true,
-        },
-        render = function(props)
-          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
-          if vim.bo[props.buf].modified then
-            filename = "[+] " .. filename
-          end
-
-          local icon, color = require("nvim-web-devicons").get_icon_color(filename)
-          return { { icon, guifg = color }, { " " }, { filename } }
-        end,
-      })
-    end,
-  },
+  -----------------------------------------------------------------------------
+	--                                                       UI Component Library
+	{ 'MunifTanjim/nui.nvim', lazy = false },
 }
 

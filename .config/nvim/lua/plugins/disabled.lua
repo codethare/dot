@@ -11,7 +11,6 @@ return {
   { "folke/noice.nvim", enabled = false },
   { "folke/flash.nvim", enabled = false },
   { "folke/neodev.nvim", enabled = false },      -- docs and completion for the nvim lua API
-  { "folke/which-key.nvim", enabled = false },
   { "folke/tokyonight.nvim", enabled = false },
   { "folke/persistence.nvim", enabled = false },
 }

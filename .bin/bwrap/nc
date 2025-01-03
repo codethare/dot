@@ -47,7 +47,7 @@ set -euo pipefail
 	--bind-try "$HOME/.bwrap/codbox/.config/zellij" "/home/nm/.config/zellij" \
 	--bind-try "$HOME/.bwrap/codbox/.local" "/home/nm/.local" \
 	--bind-try "$HOME/.bwrap/codbox/.cache" "/home/nm/.cache" \
-/usr/bin/fish) \
+/usr/bin/fish -c "zellij attach codddd") \
 11< <(getent passwd $UID 651112) \
 12< <(getent group $(id -g) 532328) \
 

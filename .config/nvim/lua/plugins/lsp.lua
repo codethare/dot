@@ -1,6 +1,6 @@
 return {
-  -- tools
-  -- lsp servers
+  -----------------------------------------------------------------------------
+  --                                                                lsp servers
   {
     "neovim/nvim-lspconfig",
     opts = {
