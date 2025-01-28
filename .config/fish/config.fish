@@ -8,6 +8,7 @@ set -gx EDITOR nvim
 # set -gx PATH node_modules/.bin $PATH
 # set -gx PATH $HOME/.config/yarn/global/node_modules/.bin $PATH
 set -gx fish_runtime_path /usr/bin/fish
+set -Ux GEMINI_API_KEY AIzaSyDXGvQ7NODj6C93BAkHeRlIk3bh60_PMkg
 
 set -x mv
 set -x cp
