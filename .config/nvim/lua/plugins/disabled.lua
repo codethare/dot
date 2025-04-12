@@ -7,10 +7,11 @@ return {
   { "williamboman/mason-lspconfig.nvim", enabled = false },
   { "ThePrimeagen/refactoring.nvim", enabled = false },    -- treesitter-plugin
   { "akinsho/bufferline.nvim", enabled = false },
-  -- { "rcarriga/nvim-notify", enabled = false },
+  { "rcarriga/nvim-notify", enabled = false },
   { "folke/noice.nvim", enabled = false },
   { "folke/flash.nvim", enabled = false },
   { "folke/neodev.nvim", enabled = false },      -- docs and completion for the nvim lua API
+  { "folke/which-key.nvim", enabled = false },
   { "folke/tokyonight.nvim", enabled = false },
-  { "folke/persistence.nvim", enabled = false },
+  -- { "folke/persistence.nvim", enabled = false },
 }

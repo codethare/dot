@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+(exec bwrap \
+	--die-with-parent \
+	--unshare-all \
+	--share-net \
+	--setenv "HOME" "/home/dsb" \
+	--setenv "USER" "/home/dsb" \
+	--setenv "LOGNAME" "/home/dsb" \
+	--setenv "PATH" "/usr/bin" \
+	--setenv "TERM" "$TERM" \
+	--hostname "dev" \
+	--tmpfs "/" \
+	--tmpfs "/run" \
+	--tmpfs "/tmp" \
+	--dev "/dev" \
+	--proc "/proc" \
+	--ro-bind "/bin" "/bin" \
+	--ro-bind "/sbin" "/sbin" \
+	--ro-bind "/usr" "/usr" \
+	--ro-bind "/etc" "/etc" \
+	--ro-bind "/lib" "/lib" \
+	--ro-bind "/lib64" "/lib64" \
+	--ro-bind "/sys" "/sys" \
+	--ro-bind "/var" "/var" \
+	--ro-bind "/run/systemd/resolve" "/run/systemd/resolve" \
+	--ro-bind "$HOME/.bwrap/dev-ser-box/etc/proxychains.conf" "/etc/proxychains.conf" \
+	--ro-bind "$HOME/.bwrap/dev-ser-box/.gitconfig" "/home/dsb/.gitconfig" \
+	--ro-bind "$HOME/.bwrap/dev-ser-box/.config/fish" "/home/dsb/.config/fish" \
+	--bind-try "$HOME/.bwrap/dev-ser-box/.local/share/fish/fish_history" "/home/dsb/.local/share/fish/fish_history" \
+	--bind "$HOME/gt/test/" "/home/dsb/project" \
+	--bind "$HOME/.bwrap/dev-ser-box/.config/mise/config.toml" "/home/dsb/.config/mise/config.toml" \
+	--bind "$HOME/.bwrap/dev-ser-box/.cache/mise" "/home/dsb/.cache/mise" \
+	--bind "$HOME/.bwrap/dev-ser-box/.local/share/mise" "/home/dsb/.local/share/mise" \
+	--bind "$HOME/.bwrap/dev-ser-box/.config/mise/config.toml" "/home/dsb/.config/mise/config.toml" \
+	--bind "$HOME/.bwrap/dev-ser-box/.cargo" "/home/dsb/.cargo" \
+	--bind "$HOME/.bwrap/dev-ser-box/.rustup" "/home/dsb/.rustup" \
+/usr/bin/fish) \
+11< <(getent passwd $UID 651113) \
+12< <(getent group $(id -g) 532329) \

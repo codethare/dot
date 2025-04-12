@@ -20,8 +20,8 @@ keymap.set("n", "dw", 'vb"_d')
 
 -- __________________________________________
 --                                    New tab
-keymap.set("n", "te", ":tabedit<Return>")
-keymap.set("n", "tn", ":tabnew<space>")
+keymap.set("n", "te", ":tabedit<space>")
+keymap.set("n", "tn", ":tabnew<Return>")
 keymap.set("n", "<leader>T", ":terminal <Return> a")
 keymap.set("n", "K", "mzJ`z")
 
@@ -99,4 +99,7 @@ keymap.set("n", "<leader>i", function()
   require("user.lsp").toggleInlayHints()
 end)
 
+vim.api.nvim_create_user_command("ToggleAutoformat", function()
+	require("user.lsp").toggleAutoformat()
+end, {})
 
