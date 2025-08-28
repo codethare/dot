@@ -1,26 +1,35 @@
 #!/usr/bin/env bash
 
+readonly BOX_DIR="$HOME/.bwrap/codbox"
+readonly V2RAY_CONFIG_DIR="$HOME/.bwrap/vbox/.config/v/"
+readonly HOME_DIR="/home/codcat"
+
 set -euo pipefail
 (exec bwrap \
 	--unshare-all \
 	--share-net \
 	--die-with-parent \
 	--clearenv \
-	--setenv "HOME" "/home/nm" \
-	--setenv "USER" "/home/nm" \
-	--setenv "LOGNAME" "/home/nm" \
+	--setenv "HOME" "$HOME_DIR" \
+	--setenv "USER" "$HOME_DIR" \
+	--setenv "LOGNAME" "$HOME_DIR" \
 	--setenv "PATH" "/usr/bin" \
 	--setenv "TERM" "$TERM" \
 	--hostname "nat" \
 	--dev "/dev" \
 	--proc "/proc" \
-	--tmpfs "/tmp" \
+	--tmpfs "/run" \
+        --tmpfs "/var" \
+        --tmpfs "/tmp" \
 	--ro-bind "/usr/share" "/usr/share" \
 	--ro-bind "/usr/lib" "/lib" \
-	--ro-bind "/usr/lib64" "/lib64" \
 	--ro-bind "/usr/lib" "/usr/lib" \
-	--ro-bind "/usr/lib64" "/usr/lib64" \
+	--ro-bind "/usr/lib/git-core" "/usr/lib/git-core" \
+	--ro-bind "/usr/lib64" "/lib64" \
+	--ro-bind "/usr/lib64/ld-linux-x86-64.so.2" "/usr/lib64/ld-linux-x86-64.so.2" \
+	--ro-bind "/usr/bin" "/bin" \
 	--ro-bind "/usr/bin" "/usr/bin" \
+	--ro-bind "/usr/include" "/usr/include" \
 	--ro-bind "/usr/share" "/usr/share" \
 	--ro-bind "/etc/fonts" "/etc/fonts" \
 	--ro-bind "/etc/resolv.conf" "/etc/resolv.conf" \
@@ -28,33 +37,56 @@ set -euo pipefail
 	--ro-bind "/etc/ca-certificates" "/etc/ca-certificates" \
 	--ro-bind "/etc/localtime" "/etc/localtime" \
 	--ro-bind "/etc/containers/seccomp.json" "/etc/containers/seccomp.json" \
-	--ro-bind "$HOME/.bwrap/codbox/etc/hosts" "/etc/hosts" \
-	--ro-bind "$HOME/.bwrap/codbox/etc/resolv.conf" "/etc/resolv.conf" \
-	--ro-bind "$HOME/.bwrap/codbox/etc/proxychains.conf" "/etc/proxychains.conf" \
-	--ro-bind "$HOME/.bwrap/codbox/etc/environment" "/etc/environment" \
-	--ro-bind "$HOME/.bwrap/codbox/etc/machine-id" "/etc/machine-id" \
-	--ro-bind "$HOME/.bwrap/codbox/etc/machine-id" "/var/lib/dbus/machine-id" \
-	--ro-bind "$HOME/.bwrap/codbox/usr/local" "/usr/local" \
-	--bind-try "$HOME/gt/test" "/home/nm/build/" \
-	--bind-try "$HOME/.bwrap/codbox/.tircx" "/home/nm/.tircx" \
-	--bind-try "$HOME/.bwrap/codbox/.gitconfig" "/home/nm/.gitconfig" \
-	--bind-try "$HOME/.bwrap/codbox/.curlrc" "/home/nm/.curlrc" \
-	--bind-try "$HOME/.bwrap/codbox/.config/lazy" "/home/nm/.config/lazy" \
-	--bind-try "$HOME/.bwrap/codbox/.config/nvim" "/home/nm/.config/nvim" \
-	--bind-try "$HOME/.bwrap/codbox/.config/github-copilot" "/home/nm/.config/github-copilot" \
-	--bind-try "$HOME/.bwrap/codbox/.neovim-ghq" "/home/nm/.neovim-ghq" \
-	--bind-try "$HOME/.bwrap/codbox/.config/yarn/lsp" "/home/nm/.config/yarn/lsp" \
-	--bind-try "$HOME/.bwrap/codbox/.config/fish" "/home/nm/.config/fish" \
-	--bind-try "$HOME/.bwrap/codbox/.config/zellij" "/home/nm/.config/zellij" \
-	--bind-try "$HOME/.bwrap/codbox/.local" "/home/nm/.local" \
-	--bind-try "$HOME/.bwrap/codbox/.cache" "/home/nm/.cache" \
-	--bind-try "$HOME/.bwrap/codbox/.cargo" "/home/nm/.cargo" \
-	--bind-try "$HOME/.bwrap/codbox/.rustup" "/home/nm/.rustup" \
-/usr/bin/fish -c "zellij attach onetree") \
+	--ro-bind "/etc/v2ray/vpoint_socks_vmess.json" "/etc/v2ray/vpoint_socks_vmess.json" \
+	--ro-bind "/etc/v2ray/vpoint_vmess_freedom.json" "/etc/v2ray/vpoint_vmess_freedom.json" \
+	--ro-bind "$BOX_DIR/etc/hosts" "/etc/hosts" \
+	--ro-bind "$BOX_DIR/etc/resolv.conf" "/etc/resolv.conf" \
+	--ro-bind "$BOX_DIR/etc/proxychains.conf" "/etc/proxychains.conf" \
+	--ro-bind "$BOX_DIR/etc/environment" "/etc/environment" \
+	--ro-bind "$BOX_DIR/etc/machine-id" "/etc/machine-id" \
+	--ro-bind "$BOX_DIR/etc/machine-id" "/var/lib/dbus/machine-id" \
+	--ro-bind "$BOX_DIR/etc/passwd" "/etc/passwd" \
+	--ro-bind "$BOX_DIR/etc/group" "/etc/group" \
+	--ro-bind "$BOX_DIR/etc/machine-id" "/etc/machine-id" \
+	--ro-bind "$BOX_DIR/usr/local" "/usr/local" \
+	--ro-bind "$V2RAY_CONFIG_DIR" "$HOME_DIR/.bwrap/vbox/.config/v/" \
+	--bind-try "$HOME/gt/test" "$HOME_DIR/build/" \
+	--bind-try "$HOME/gt/testing" "$HOME_DIR/building/" \
+	--bind-try "$BOX_DIR/.tircx" "$HOME_DIR/.tircx" \
+	--bind-try "$BOX_DIR/.gitconfig" "$HOME_DIR/.gitconfig" \
+	--bind-try "$BOX_DIR/.curlrc" "$HOME_DIR/.curlrc" \
+	--bind-try "$BOX_DIR/.bin" "$HOME_DIR/.bin" \
+	--bind-try "$BOX_DIR/.gemini-env" "$HOME_DIR/.gemini-env" \
+	--bind-try "$BOX_DIR/.deepseek-env" "$HOME_DIR/.deepseek-env" \
+	--bind-try "$BOX_DIR/.config/lazy" "$HOME_DIR/.config/lazy" \
+	--bind-try "$BOX_DIR/.config/nvim" "$HOME_DIR/.config/nvim" \
+	--bind-try "$BOX_DIR/.config/helix" "$HOME_DIR/.config/helix" \
+	--bind-try "$BOX_DIR/.config/lf" "$HOME_DIR/.config/lf" \
+	--bind-try "$BOX_DIR/.config/github-copilot" "$HOME_DIR/.config/github-copilot" \
+	--bind-try "$BOX_DIR/.neovim-ghq" "$HOME_DIR/.neovim-ghq" \
+	--bind-try "$BOX_DIR/.config/yarn/lsp" "$HOME_DIR/.config/yarn/lsp" \
+	--bind-try "$BOX_DIR/.config/fish" "$HOME_DIR/.config/fish" \
+	--bind-try "$BOX_DIR/.config/zellij" "$HOME_DIR/.config/zellij" \
+	--bind-try "$BOX_DIR/.config/just" "$HOME_DIR/.config/just" \
+	--bind-try "$BOX_DIR/.local" "$HOME_DIR/.local" \
+	--bind-try "$BOX_DIR/.cache" "$HOME_DIR/.cache" \
+	--bind-try "$BOX_DIR/.cargo" "$HOME_DIR/.cargo" \
+	--bind-try "$BOX_DIR/.rustup" "$HOME_DIR/.rustup" \
+	--bind-try "$BOX_DIR/.gemini/" "$HOME_DIR/.gemini/" \
+	/usr/bin/fish -c "zellij attach -c $@") \
 11< <(getent passwd $UID 651112) \
 12< <(getent group $(id -g) 532328) \
 
-
- 
-#	--tmpfs "/usr/lib/modules" \
+# /usr/bin/fish) \
+	# 10> "$HOME/.bin/bwrap/seccomp_default_filter.bpf" \
+ #	--tmpfs "/usr/lib/modules" \
 #	--tmpfs "/usr/lib/systemd" \
+	# --bind "/tmp" "/tmp" \   	# lsp rust (need)
+	# ______________________________________________
+	# 					etc
+	# --ro-bind "/etc/fonts" "/etc/fonts" \
+	# --ro-bind "/etc/resolv.conf" "/etc/resolv.conf" \
+	# --ro-bind "/etc/ssl" "/etc/ssl" \
+	# --ro-bind "/etc/ca-certificates" "/etc/ca-certificates" \
+	# --ro-bind "/etc/localtime" "/etc/localtime" \
+	# --ro-bind "/etc/containers/seccomp.json" "/etc/containers/seccomp.json" \

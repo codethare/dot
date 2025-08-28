@@ -1,8 +1,0 @@
- bar {
-    status_command ~/gt/test/warustatus/target/release/warustatus
-    position top
-    pango_markup disabled
-    separator_symbol ""
-    font pango: Terminus $fontSize
- }
-

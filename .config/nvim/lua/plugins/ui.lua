@@ -3,9 +3,9 @@ return {
     "folke/snacks.nvim",
     opts = {
       dashboard = { enabled = false },
-      -- notify = { enabled = false },
-      -- notifier = { enabled = false },
-      -- statuscolumn = { enabled = false },
+      notify = { enabled = false },
+      notifier = { enabled = false },
+      statuscolumn = { enabled = false },
       scroll = { enabled = false },
     },
     keys = {
@@ -22,6 +22,7 @@ return {
   -----------------------------------------------------------------------------
   --                                                                statusline
   {
+    enabled = false,
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
       local LazyVim = require("lazyvim.util")

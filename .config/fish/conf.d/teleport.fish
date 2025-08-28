@@ -25,7 +25,6 @@ alias pro "cd $HOME/build/blox/pro/"
 alias autoGPT "cd $HOME/build/blox/pro/autoGPT"
 alias ot-git "cd $HOME/build/gt/ot-champion"
 
-
 alias http "python -m http.server 9981"
 
 alias fishEdit "vim $HOME/.config/fish/config.fish"

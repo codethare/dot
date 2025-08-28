@@ -42,6 +42,7 @@ set -euo pipefail
     --bind-try "$HOME"/.bwrap/devbox/run/user/"$(id -u)"/dconf/user /run/user/"$(id -u)"/dconf/user \
     --bind-try "$HOME"/.bwrap/devbox/.mozilla /home/devdesk/.mozilla \
     --bind-try "$HOME"/.bwrap/devbox/.cache/ /home/devdesk/.cache \
+    --bind-try "$HOME"/gt/test/test/plugin /home/devdesk/plugin \
     --die-with-parent \
     --new-session \
     --uid 216 --gid 131 \
