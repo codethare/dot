@@ -1,0 +1,58 @@
+#!/bin/bash
+
+echo "=== DNS 修复脚本启动 ==="
+
+# 公共 DNS 列表
+DNS_SERVERS="8.8.8.8 1.1.1.1"
+FALLBACK_DNS="9.9.9.9"
+
+# 检查网络连通性
+echo "[1] 检查网络连通性..."
+ping -c 2 8.8.8.8 &>/dev/null
+if [[ $? -ne 0 ]]; then
+    echo "❌ 无法连接互联网（8.8.8.8 不可达）。请检查你的网络连接。"
+    exit 1
+else
+    echo "✅ 网络正常"
+fi
+
+# 检查 systemd-resolved 是否启用
+echo "[2] 检测 systemd-resolved 状态..."
+if systemctl is-active --quiet systemd-resolved; then
+    echo "✅ systemd-resolved 已启用，配置永久 DNS..."
+
+    sudo sed -i '/^\[Resolve\]/,/^\[.*\]/ s/^#*DNS=.*/DNS='"$DNS_SERVERS"'/' /etc/systemd/resolved.conf
+    sudo sed -i '/^\[Resolve\]/,/^\[.*\]/ s/^#*FallbackDNS=.*/FallbackDNS='"$FALLBACK_DNS"'/' /etc/systemd/resolved.conf
+
+    # 若未存在 DNS 条目则添加
+    grep -q "^\[Resolve\]" /etc/systemd/resolved.conf || echo "[Resolve]" | sudo tee -a /etc/systemd/resolved.conf
+    grep -q "^DNS=" /etc/systemd/resolved.conf || echo "DNS=$DNS_SERVERS" | sudo tee -a /etc/systemd/resolved.conf
+    grep -q "^FallbackDNS=" /etc/systemd/resolved.conf || echo "FallbackDNS=$FALLBACK_DNS" | sudo tee -a /etc/systemd/resolved.conf
+
+    # 重启服务
+    echo "🔁 重启 systemd-resolved..."
+    sudo systemctl restart systemd-resolved
+
+    echo "🔁 重新链接 resolv.conf..."
+    sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+
+else
+    echo "⚠️ 未启用 systemd-resolved，手动设置 /etc/resolv.conf..."
+
+    sudo bash -c "cat > /etc/resolv.conf" <<EOF
+nameserver 8.8.8.8
+nameserver 1.1.1.1
+EOF
+
+    echo "✅ resolv.conf 已覆盖"
+fi
+
+# 验证 DNS 设置
+echo "[3] 验证 DNS 是否生效..."
+ping -c 2 archlinux.org &>/dev/null
+if [[ $? -eq 0 ]]; then
+    echo "✅ DNS 设置成功！现在你可以使用 pacman 正常更新系统。"
+else
+    echo "❌ DNS 仍有问题，请尝试重启系统或手动检查 resolv.conf"
+fi
+

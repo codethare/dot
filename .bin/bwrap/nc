@@ -68,6 +68,7 @@ set -euo pipefail
 	--bind-try "$BOX_DIR/.config/fish" "$HOME_DIR/.config/fish" \
 	--bind-try "$BOX_DIR/.config/zellij" "$HOME_DIR/.config/zellij" \
 	--bind-try "$BOX_DIR/.config/just" "$HOME_DIR/.config/just" \
+	--bind-try "$BOX_DIR/.config/configstore" "$HOME_DIR/.config/configstore" \
 	--bind-try "$BOX_DIR/.local" "$HOME_DIR/.local" \
 	--bind-try "$BOX_DIR/.cache" "$HOME_DIR/.cache" \
 	--bind-try "$BOX_DIR/.cargo" "$HOME_DIR/.cargo" \
