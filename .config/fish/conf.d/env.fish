@@ -16,7 +16,7 @@ set -gx LIBVIRT_DEFAULT_URI "qemu:///system"
 # vim > nvim
 set -gx EDITOR nvim
 
-set -U fish_greeting
+set -g fish_greeting
 
 # 添加用户目录到PATH（安全位置）
 if test -d "$HOME/.local/bin"
@@ -26,6 +26,10 @@ end
 # 添加 ~/.bin 到 PATH
 if test -d "$HOME/.bin"
     set -gx PATH "$HOME/.bin" $PATH
+end
+
+if test -f "$HOME/.keys"
+    source "$HOME/.keys"
 end
 
 # 初始化目录历史变量
@@ -39,5 +43,9 @@ end
 
 # 捕获目录变更事件
 function __record_dir_history --on-variable PWD
-    set -g dirprev $dirprev $OLDPWD
+    if set -q dirprev[1]
+        set -g dirprev $dirprev[-99..] $OLDPWD
+    else
+        set -g dirprev $OLDPWD
+    end
 end

@@ -9,7 +9,7 @@ set -gx HISTCONTROL "ignoreboth"
 set -g noclobber
 
 #  增强命令历史安全
-set -gx HISTFILE "$HOME/.config/fish/fish_history_secure"
+set -g HISTFILE "$HOME/.config/fish/fish_history_secure"
 set -gx HISTFILESIZE 5000
 set -gx HISTSIZE 5000
 

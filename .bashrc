@@ -37,7 +37,6 @@ alias :q="exit"
 export LANG=en_US.UTF-8
 export PS1="\u@\h:\W \n\$ "
 
-
 if test -d "$HOME/.bin"; then
   PATH="$HOME/.bin:$PATH"
 fi

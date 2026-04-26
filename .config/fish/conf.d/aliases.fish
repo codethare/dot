@@ -7,7 +7,7 @@ alias tree "exa --tree -alh --icons --color=always"
 
 # Wayland 剪贴板工具
 alias wlc "wl-copy -n -t text/plain"
-alias yankit "yank-cli -- wl-copy -n -t text/plain"
+alias yankit "wl-copy -n -t text/plain"
 alias recopy "wl-paste -n | wl-copy -n"
 alias wlpn "wl-paste -t text/plain -n"
 
@@ -20,10 +20,10 @@ alias broken-link "wl-paste -n | string replace -a '\n' '' | url-picker"
 alias ga "git commit -a"
 
 # 代理设置 (根据需求启用)
-# alias dxproxy "set -gx http_proxy socks5://127.0.22.19:3215; set -gx https_proxy socks5://127.0.22.19:3215"
+alias http_proxy "set -gx http_proxy http://127.0.48.69:8228; set -gx https_proxy http://127.0.48.69:8228"
 
 # 安全增强别名
-alias rm "rm -I --preserve-root"  # 安全删除
+alias rm "rm -I --preserve-root" # 安全删除
 alias chmod "chmod --preserve-root"
 alias chown "chown --preserve-root"
 alias chgrp "chgrp --preserve-root"
@@ -40,5 +40,3 @@ alias copyfile "cp -v"
 
 # create machine-id
 alias machine-id "echo 'dbus-machine-id-$(uuidgen)'"
-
-

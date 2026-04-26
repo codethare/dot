@@ -52,12 +52,6 @@ return {
     },
     snippets = {
       preset = 'friendly-snippets',
-      expand = function(s) ls.lsp_expand(s) end,
-      active = function(opts)
-        if opts and opts.direction then return ls.locally_jumpable(opts.direction) end
-        return ls.in_snippet()
-      end,
-      jump = function(direction) ls.jump(direction) end,
     },
 	},
 

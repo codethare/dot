@@ -1,0 +1,12 @@
+[Unit]
+Description="v2"
+After=network.target
+
+[Service]
+Type=simple
+ExecStart="/home/oho/.bin/bwrap/vv"
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target

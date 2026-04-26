@@ -1,20 +1,6 @@
-# 自定义提示符
-function fish_prompt
-    # 根用户使用 #，普通用户使用 $
-    set -l user_char '$'
-    if test (id -u) -eq 0
-        set user_char '#'
-    end
 
-    # 两行提示符：用户@主机 当前目录(短路径)
-    # 第二行是 $ 或 #
-    printf '%s@%s:%s\n%s ' (whoami) (hostname|cut -d . -f1) \
-        (prompt_pwd) $user_char
-end
 
 function fish_prompt
-    # 颜色定义 - 使用舒适的深灰色
-    set -l bg_gray (set_color -b 238) # #444444
     set -l bg_dark_gray (set_color -b 236) # #303030
     set -l fg_white (set_color -o white)
     set -l fg_yellow (set_color -o yellow)

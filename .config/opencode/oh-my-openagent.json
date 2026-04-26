@@ -1,0 +1,138 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
+  "default_skills": [
+    "superpowers/skills/test-driven-development",
+    "superpowers/skills/receiving-code-review"
+  ],
+  "agents": {
+    "sisyphus": {
+      "model": "opencode/minimax-m2.5-free",
+      "variant": "max",
+      "fallback_models": [
+        {
+          "model": "openrouter/minimax/minimax-m2.5:free"
+        },
+        {
+          "model": "opencode/big-pickle"
+        }
+      ]
+    },
+    "hephaestus": {
+      "model": "opencode/minimax-m2.5-free",
+      "variant": "medium",
+      "fallback_models": [
+        {
+          "model": "openrouter/minimax/minimax-m2.5:free",
+          "variant": "medium"
+        }
+      ]
+    },
+    "oracle": {
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "variant": "high",
+      "fallback_models": [
+        {
+          "model": "openrouter/minimax/minimax-m2.5:free",
+          "variant": "high"
+        }
+      ]
+    },
+    "explore": {
+      "model": "opencode/minimax-m2.5-free",
+      "fallback_models": [
+        {
+          "model": "openrouter/minimax/minimax-m2.5:free",
+          "variant": "medium"
+        }
+      ]
+    },
+    "multimodal-looker": {
+      "model": "opencode/minimax-m2.5-free",
+      "variant": "medium",
+      "fallback_models": [
+        {
+          "model": "openrouter/minimax/minimax-m2.5:free",
+          "variant": "medium"
+        }
+      ]
+    },
+    "prometheus": {
+      "model": "opencode/minimax-m2.5-free",
+      "variant": "max",
+      "fallback_models": [
+        {
+          "model": "openrouter/minimax/minimax-m2.5:free",
+          "variant": "medium"
+        }
+      ]
+    },
+    "metis": {
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "variant": "max",
+      "fallback_models": [
+      ]
+    },
+    "momus": {
+      "model": "opencode/minimax-m2.5-free",
+      "variant": "xhigh",
+      "fallback_models": [
+      ]
+    },
+    "atlas": {
+      "model": "opencode/minimax-m2.5-free",
+      "fallback_models": [
+      ]
+    },
+    "sisyphus-junior": {
+      "model": "opencode/minimax-m2.5-free",
+      "fallback_models": [
+      ]
+    }
+  },
+  "categories": {
+    "visual-engineering": {
+      "model": "opencode/minimax-m2.5-free",
+      "variant": "high",
+      "fallback_models": [
+      ]
+    },
+    "ultrabrain": {
+      "model": "opencode/minimax-m2.5-free",
+      "variant": "xhigh",
+      "fallback_models": [
+      ]
+    },
+    "deep": {
+      "model": "opencode/minimax-m2.5-free",
+      "variant": "medium",
+      "fallback_models": [
+      ]
+    },
+    "artistry": {
+      "model": "opencode/minimax-m2.5-free",
+      "variant": "high",
+      "fallback_models": [
+      ]
+    },
+    "quick": {
+      "model": "opencode/minimax-m2.5-free",
+      "fallback_models": [
+      ]
+    },
+    "unspecified-low": {
+      "model": "opencode/minimax-m2.5-free",
+      "fallback_models": [
+      ]
+    },
+    "unspecified-high": {
+      "model": "opencode/minimax-m2.5-free",
+      "fallback_models": [
+      ]
+    },
+    "writing": {
+      "model": "opencode/minimax-m2.5-free",
+      "fallback_models": [
+      ]
+    }
+  }
+}

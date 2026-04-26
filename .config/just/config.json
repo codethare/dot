@@ -108,6 +108,43 @@
       "tags": "socks"
     },
     {
+      "listen": "127.0.3.13",
+      "port": 1111,
+      "protocol": "http",
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "userLevel": 8
+      },
+      "sniffing": {
+        "destOverride": [
+          "http",
+          "tls",
+          "fakedns"
+        ],
+        "enabled": true,
+        "routeOnly": false
+      },
+      "tags": "http"
+    },
+    {
+      "listen": "0.0.0.0",
+      "port": 8208,
+      "protocol": "http",
+      "settings": {
+        "network": "tcp,udp"
+      },
+      "streamSettings": {
+        "sockopt": {
+          "tproxy": "tproxy"
+        }
+      },
+      "sniffing": {
+        "enabled": false
+      },
+      "tags": "http"
+    },
+    {
       "listen": "127.0.0.1",
       "port": 11822,
       "protocol": "dokodemo-door",
