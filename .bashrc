@@ -37,6 +37,8 @@ alias :q="exit"
 export LANG=en_US.UTF-8
 export PS1="\u@\h:\W \n\$ "
 
+export WLR_RENDERER_ALLOW_SOFTWARE=1
+
 if test -d "$HOME/.bin"; then
   PATH="$HOME/.bin:$PATH"
 fi

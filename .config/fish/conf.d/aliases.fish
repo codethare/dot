@@ -19,8 +19,19 @@ alias broken-link "wl-paste -n | string replace -a '\n' '' | url-picker"
 # Git 简化
 alias ga "git commit -a"
 
-# 代理设置 (根据需求启用)
-alias http_proxy "set -gx http_proxy http://127.0.48.69:8228; set -gx https_proxy http://127.0.48.69:8228"
+# 代理设置函数
+function-proxy
+    if test (count $argv) -eq 0
+        set -gx http_proxy http://127.0.48.69:8228
+        set -gx https_proxy http://127.0.48.69:8228
+        echo "Proxy enabled: http://127.0.48.69:8228"
+    else
+        set -e http_proxy
+        set -e https_proxy
+        echo "Proxy disabled"
+    end
+end
+alias proxy-toggle function-proxy
 
 # 安全增强别名
 alias rm "rm -I --preserve-root" # 安全删除

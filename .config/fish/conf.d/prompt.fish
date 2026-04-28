@@ -34,7 +34,7 @@ function fish_prompt
     echo -n -s $bg_dark_gray $fg_white " $USER@$hostname_part " $normal
 
     # 第二行：当前目录
-    echo -n -s $bg_gray $fg_yellow " $cwd " $normal
+    echo -n -s $bg_dark_gray $fg_yellow " $cwd " $normal
     echo
 
     # 第三行：提示符字符

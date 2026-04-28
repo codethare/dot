@@ -1,6 +1,5 @@
 set -gx LANG en_US.UTF-8
 # 语言和安全区域设置
-set -gx LANG en_US.UTF-8
 set -gx LC_CTYPE en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
 
