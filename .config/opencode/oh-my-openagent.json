@@ -18,120 +18,141 @@
       ]
     },
     "hephaestus": {
-      "model": "opencode/minimax-m2.5-free",
-      "variant": "medium",
+      "model": "openrouter/deepseek/deepseek-v4-flash",
       "fallback_models": [
         {
-          "model": "openrouter/minimax/minimax-m2.5:free",
-          "variant": "medium"
+          "model": "openrouter/deepseek/deepseek-v3.2"
         }
       ]
     },
     "oracle": {
-      "model": "openrouter/deepseek/deepseek-v3.2",
-      "variant": "high",
+      "model": "openrouter/deepseek/deepseek-v4-pro",
       "fallback_models": [
         {
-          "model": "openrouter/minimax/minimax-m2.5:free",
-          "variant": "high"
+          "model": "openrouter/deepseek/deepseek-v4-flash"
         }
       ]
     },
     "explore": {
-      "model": "opencode/minimax-m2.5-free",
+      "model": "openrouter/minimax/minimax-m2.5:free",
       "fallback_models": [
         {
-          "model": "openrouter/minimax/minimax-m2.5:free",
-          "variant": "medium"
+          "model": "openrouter/deepseek/deepseek-chat"
         }
       ]
     },
     "multimodal-looker": {
-      "model": "opencode/minimax-m2.5-free",
-      "variant": "medium",
+      "model": "openrouter/deepseek/deepseek-v4-flash",
       "fallback_models": [
         {
-          "model": "openrouter/minimax/minimax-m2.5:free",
-          "variant": "medium"
+          "model": "openrouter/qwen/qwen2-vl-7b-instruct"
         }
       ]
     },
     "prometheus": {
-      "model": "opencode/minimax-m2.5-free",
-      "variant": "max",
+      "model": "openrouter/deepseek/deepseek-v4-pro",
       "fallback_models": [
         {
-          "model": "openrouter/minimax/minimax-m2.5:free",
-          "variant": "medium"
+          "model": "openrouter/deepseek/deepseek-v4-flash"
         }
       ]
     },
     "metis": {
-      "model": "openrouter/deepseek/deepseek-v3.2",
-      "variant": "max",
+      "model": "openrouter/deepseek/deepseek-v4-flash",
       "fallback_models": [
+        {
+          "model": "openrouter/deepseek/deepseek-v3.2"
+        }
       ]
     },
     "momus": {
-      "model": "opencode/minimax-m2.5-free",
-      "variant": "xhigh",
+      "model": "openrouter/deepseek/deepseek-v4-flash",
       "fallback_models": [
+        {
+          "model": "openrouter/deepseek/deepseek-v4-pro"
+        }
       ]
     },
     "atlas": {
-      "model": "opencode/minimax-m2.5-free",
+      "model": "openrouter/deepseek/deepseek-v4-flash",
       "fallback_models": [
+        {
+          "model": "openrouter/deepseek/deepseek-chat"
+        }
       ]
     },
     "sisyphus-junior": {
-      "model": "opencode/minimax-m2.5-free",
+      "model": "openrouter/deepseek/deepseek-v4-flash",
       "fallback_models": [
+        {
+          "model": "openrouter/deepseek/deepseek-chat"
+        }
       ]
     }
   },
   "categories": {
     "visual-engineering": {
-      "model": "opencode/minimax-m2.5-free",
-      "variant": "high",
+      "model": "openrouter/deepseek/deepseek-v4-flash",
       "fallback_models": [
+        {
+          "model": "openrouter/deepseek/deepseek-chat"
+        }
       ]
     },
     "ultrabrain": {
-      "model": "opencode/minimax-m2.5-free",
-      "variant": "xhigh",
+      "model": "openrouter/deepseek/deepseek-v4-pro",
       "fallback_models": [
+        {
+          "model": "openrouter/deepseek/deepseek-v4-flash"
+        }
       ]
     },
     "deep": {
-      "model": "opencode/minimax-m2.5-free",
-      "variant": "medium",
+      "model": "openrouter/deepseek/deepseek-v4-flash",
       "fallback_models": [
+        {
+          "model": "openrouter/deepseek/deepseek-chat"
+        }
       ]
     },
     "artistry": {
-      "model": "opencode/minimax-m2.5-free",
-      "variant": "high",
+      "model": "openrouter/deepseek/deepseek-v4-flash",
       "fallback_models": [
+        {
+          "model": "openrouter/deepseek/deepseek-chat"
+        }
       ]
     },
     "quick": {
-      "model": "opencode/minimax-m2.5-free",
+      "model": "openrouter/minimax/minimax-m2.5:free",
       "fallback_models": [
+        {
+          "model": "openrouter/deepseek/deepseek-chat"
+        }
       ]
     },
     "unspecified-low": {
-      "model": "opencode/minimax-m2.5-free",
+      "model": "openrouter/minimax/minimax-m2.5:free",
       "fallback_models": [
+        {
+          "model": "openrouter/deepseek/deepseek-chat"
+        }
       ]
     },
     "unspecified-high": {
-      "model": "opencode/minimax-m2.5-free",
+      "model": "openrouter/deepseek/deepseek-v4-flash",
       "fallback_models": [
+        {
+          "model": "openrouter/deepseek/deepseek-chat"
+        }
       ]
     },
     "writing": {
-      "model": "opencode/minimax-m2.5-free",
+      "model": "openrouter/deepseek/deepseek-v4-flash",
       "fallback_models": [
+        {
+          "model": "openrouter/deepseek/deepseek-chat"
+        }
       ]
     }
   }
